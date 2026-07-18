@@ -7,10 +7,11 @@ OBJ_DIR=$BUILD_DIR/obj
 LIB_DIR=$BUILD_DIR/lib
 INC_DIR=$BUILD_DIR/include
 LIB_NAME=libspk.a
-
-mkdir -p "$OBJ_DIR" "$LIB_DIR" "$INC_DIR"
-
 OBJS=()
+
+echo "[0/4] Cleaning previous build"
+rm -rf "$OBJ_DIR" "$LIB_DIR/$LIB_NAME"
+mkdir -p "$OBJ_DIR" "$LIB_DIR" "$INC_DIR"
 
 echo "[1/4] Compiling .c files"
 for f in "$SRC_DIR"/*.c; do
@@ -26,7 +27,7 @@ for f in "$SRC_DIR"/*.c; do
     -G0 \
     -ffreestanding \
     -nostdlib \
-    -I"$SRC_DIR" \
+    -I"$SRC_DIR/include" \
     -c "$f" \
     -o "$OBJ_DIR/$name.o"
   OBJS+=("$OBJ_DIR/$name.o")
@@ -51,8 +52,8 @@ mipsel-linux-gnu-ar rcs "$LIB_DIR/$LIB_NAME" "${OBJS[@]}"
 mipsel-linux-gnu-ranlib "$LIB_DIR/$LIB_NAME"
 
 echo "[4/4] Publishing headers"
-cp "$SRC_DIR"/*.h "$INC_DIR"/
-cp "$SRC_DIR"/*.inc "$INC_DIR"/
+cp "$SRC_DIR"/include/*.h "$INC_DIR"/
+cp "$SRC_DIR"/include/*.inc "$INC_DIR"/
 
 echo "Lib build done"
 echo "  archive : $LIB_DIR/$LIB_NAME"

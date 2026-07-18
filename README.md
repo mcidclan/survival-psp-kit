@@ -1,4 +1,4 @@
-## Survival PSP Kit
+## PSP Survival Programmer Kit
 
 A small experimental project to preserve a simple and lightweight way to compile C code for the PSP hardware. Built with minimal dependencies to provide control over the development environment and keep it transparent over time.
 
@@ -8,6 +8,7 @@ Before using this kit and compile the sample codes, make sure the required build
 - `psp-prxgen`
 - `mksfo`
 - `pack-pbp`
+- python3
 
 Noting that this project is free of Newlib and relies on native system APIs with additional custom processing for the platform.
 

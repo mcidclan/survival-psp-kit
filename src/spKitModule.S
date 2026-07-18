@@ -27,8 +27,8 @@ __lib_stub_bottom:
 module_info:
   .hword 0x0000
   .byte 1, 0
-  .ascii "spk_module"
-  .space 17
+  .ascii "SPKIT_DEFAULT_MODULE_NAME"
+  .space 2
   .byte 0
   .word _gp
   .word __lib_ent_top

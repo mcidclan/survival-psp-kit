@@ -23,7 +23,7 @@ static int thread(int args, void *argp) {
 
 int _start(int argc, void *argv) {
 
-  int thid = sceKernelCreateThread("user_thread", (void*)thread, 0x20, 0x40000, 0, 0);
+  int thid = sceKernelCreateThread("spkit_user_thread", (void*)thread, 0x20, 0x40000, 0, 0);
   if (thid >= 0) {
     sceKernelStartThread(thid, 0, 0);
   }

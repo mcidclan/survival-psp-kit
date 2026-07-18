@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-APP_NAME="poc"
-MODULE_NAME="spkit-poc-mod"
+APP_NAME="spkit"
+MODULE_NAME="spkit-debug-mod"
 
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 ROOT_DIR=$(cd "$SCRIPT_DIR/../.." && pwd)
